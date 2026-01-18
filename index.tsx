@@ -118,7 +118,6 @@ const App = () => {
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState(process.env.API_KEY || "");
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   
@@ -132,14 +131,6 @@ const App = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, imagePreview]); 
-
-  useEffect(() => {
-    if (!process.env.API_KEY) {
-      console.warn("API Key chưa được cấu hình trong process.env.API_KEY");
-    } else {
-        setApiKey(process.env.API_KEY);
-    }
-  }, []);
 
   const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -189,15 +180,11 @@ const App = () => {
   };
 
   const processGeminiCall = async (historyMessages: Message[]) => {
-    if (!apiKey) {
-        alert("Thiếu API Key.");
-        setIsLoading(false);
-        return;
-    }
     setIsLoading(true);
 
     try {
-        const ai = new GoogleGenAI({ apiKey });
+        // Use process.env.API_KEY directly as required
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
         
         // Filter out the initial Greeting for the API call (index > 0)
         const apiContents = historyMessages.filter((_, index) => index > 0).map(m => {
