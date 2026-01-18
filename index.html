@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trợ Lý Toán 12 - Cánh Diều & KNTT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+    <style>
+      body {
+        background-color: #f3f4f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      /* Custom scrollbar for chat */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      /* Markdown Styles */
+      .markdown-body p {
+        margin-bottom: 0.75rem;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+        font-weight: bold;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .markdown-body hr {
+        margin: 1rem 0;
+        border-top: 1px solid #e5e7eb;
+      }
+      .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5rem 0;
+      }
+      .katex {
+        font-size: 1.1em;
+      }
+
+      /* Table Styles - Global Defaults */
+      .markdown-body table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1px solid #d1d5db;
+        color: inherit; /* Ensure it inherits parent text color by default */
+      }
+      .markdown-body th, .markdown-body td {
+        border: 1px solid #d1d5db;
+        padding: 0.5rem 0.75rem;
+      }
+      
+      /* Bot message styles (light bg) - Ensure text is DARK */
+      .bg-white .markdown-body table,
+      .bg-white .markdown-body th, 
+      .bg-white .markdown-body td {
+        color: #111827 !important; /* gray-900, !important to override any defaults */
+      }
+      
+      .bg-white .markdown-body th {
+        background-color: #f3f4f6; /* gray-100 */
+        font-weight: 700;
+      }
+      .bg-white .markdown-body tr:nth-child(even) {
+        background-color: #f9fafb; /* gray-50 */
+      }
+
+      /* User message styles (dark blue bg) - Ensure text is WHITE */
+      .text-white.markdown-body table {
+        border-color: rgba(255,255,255,0.4);
+        color: #ffffff !important;
+      }
+      .text-white.markdown-body th, 
+      .text-white.markdown-body td {
+        border-color: rgba(255,255,255,0.4);
+        color: #ffffff !important;
+      }
+      .text-white.markdown-body th {
+        background-color: rgba(255,255,255,0.2);
+        font-weight: 600;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
